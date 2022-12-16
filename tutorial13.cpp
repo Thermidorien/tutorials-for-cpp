@@ -24,10 +24,33 @@ bool victory(bool result) {
 
     else
     {
-        std::cout << "YOU LOSE!\n Try again next time. \n";
+        std::cout << "YOU LOSE!\nTry again next time. \n";
     }
     
 
+}
+
+
+bool play_game(int guesses) {
+    
+    int correct = 42;
+    std::cout << "Playing game.\n";
+    std::cout << "Guess a number.\n";
+    std::cout << "Here is your total number of allowable guesses: " << guesses << ". \n";
+
+    int guess;
+
+    for (int i = 0; i < guesses; i++)
+    {
+        std::cin >> guess;
+
+        if (guess == correct) 
+        {
+            return true;
+        }
+    }
+    
+    return false;  
 }
 
 void difficulty_settings(int difficulty) {
@@ -57,33 +80,12 @@ void difficulty_settings(int difficulty) {
     }        
 }
 
-bool play_game(int guesses) {
-    
-    int correct = 42;
-    std::cout << "Playing game.\n";
-    std::cout << "Guess a number.\n";
-    std::cout << "You get " << guesses << "guesses. \n";
 
-    int guess;
-
-    for (int i = 0; i < guesses; i++)
-    {
-        std::cin >> guess;
-
-        if (guess == correct) 
-        {
-            return true;
-        }
-    }
-    
-    return false;
-    
-}
 
 int main()
 {
 
-    std::cout << "do you want to play a game? Type 0 for no and 1 for yes : \n";
+    std::cout << "Do you want to play a game? Type 0 for no and 1 for yes : \n";
 
     int response;
     std::cin >> response;
@@ -141,7 +143,7 @@ int main()
                 for (;;)
                 {
                     std::cout << "Please enter 0 for no and 1 for yes.\n";
-                    std::cin >> response;                  
+                    std::cin >> impossible;                  
 
                     if (impossible == 0 || impossible == 1)
                     {
@@ -160,7 +162,7 @@ int main()
 
         }  
 
-        else if (beat_game == 0 || impossible == 0) 
+        if (beat_game == 0 || impossible == 0) 
         {
 
             std::cout << "What difficulty?\n0: easy;\n1: medium;\n2: hard.\n";
