@@ -1,7 +1,13 @@
 #include <iostream>
 #include <string>
 
-void input(char response) {
+
+int main()
+
+{
+    std::cout << "do you want to play a game? (y/n):";
+
+    char response = tolower(getchar());
 
     std::cout << "You entered: \" "<< response << "\". \n";
 
@@ -13,20 +19,9 @@ void input(char response) {
         std::cout << "Then leave me alone!\n";
     }
 
-}
+    
 
-int main()
-
-{
-    std::cout << "do you want to play a game? (y/n):";
-
-    char response = tolower(getchar());
-    std::cin >> response;
-
-    input(response);
-
-
-    if(response != 'y' || response != 'n') {
+    if(response != 'y' && response != 'n') {
 
         for (;;)
         {
@@ -34,7 +29,15 @@ int main()
 
             std::cin >> response;
 
-            input(response);
+            std::cout << "You entered: \" "<< response << "\". \n";
+
+            if(response == 'y') {
+                std::cout << "Let's play a game then... \n";
+            }
+
+            else if(response == 'n') {
+                std::cout << "Then leave me alone!\n";
+            }
 
             if (response == 'y' || response == 'n')
             {
